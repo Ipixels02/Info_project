@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect, useRef, FC} from 'react';
+import {Button, Container, Nav, Navbar} from 'rsuite';
+import {
+    HashRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function App() {
+  const [s, setS] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+            <Router>
+                <Navbar >
+                    <Container>
+                        <Navbar.Header>
+                            <a href="#" className="navbar-brand logo">
+                                <img className="logo" alt="logo" style={{background: "#000"}} src="logo512.png"/>
+                            </a>
+                        </Navbar.Header>
+                        <Navbar.Body id="responsive-navbar-nav">
+                            <Nav className="mr-auto">
+                                <Nav.Item href="/home">Главная</Nav.Item>
+                                <Nav.Item href="/about">О нас</Nav.Item>
+                                <Nav.Item href="/projects">Предлагаемые проекты</Nav.Item>
+                                <Nav.Item href="/risks">Риски</Nav.Item>
+                                <Nav.Item href="/guarantees">Гарантии</Nav.Item>
+                                <Nav.Item href="/contacts">Контакты</Nav.Item>
+                            </Nav>
+                        </Navbar.Body>
+                    </Container>
+                </Navbar>
+            </Router>
+        );
 }
+
+
+
 
 export default App;
