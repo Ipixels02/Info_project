@@ -1,0 +1,58 @@
+.Header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(115, 111, 111, 0.48);
+  width: 100%;
+}
+.header_navigation {
+  display: contents;
+}
+.navbar-brand {
+  padding: 0px 20px;
+}
+.responsive-navbar-nav {
+  display: flex;
+  align-items: center;
+  margin-right: -24px;
+}
+.responsive-navbar-nav span {
+  font-family: 'Prata', serif;
+  font-size: 20px;
+}
+@media {responsive-navbar-nav span} {
+  font-family: 'Prata', serif;
+  font-size: 10px;
+}
+
+.nav_items {
+  padding: 10px 15px;
+  display: flex;
+}
+.personal_office {
+  padding: 0px 30px;
+}
+
+.main-block {
+  background-size: cover;
+  background: url("./images/BG.png") no-repeat fixed center center;
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+  height: 90vh;
+}
+
+.about-block {
+  background: url("./images/about_us.jpg") no-repeat fixed center center;
+  display: flex;
+  height: 90vh;
+}
+
+.site-copy {
+  background: #FFC59C;
+  position: fixed;
+  display: flex;
+  width: 100%;
+}
+
+ /*Styles for scroll*/
