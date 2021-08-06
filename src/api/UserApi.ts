@@ -2,13 +2,18 @@ import {LoginModel, MessageInterface, ProjectModel, RegModel, UpdateUserModel, U
 import {RESTRequest} from "./RestConnector";
 
 
-let currentUser: UserModel|null;
+let currentUser: UserModel|number;
 
-let hooksUserGet:Array<Function> = [];
+let hooksUserGet:Set<Function> = new Set<Function>();
 
 
-export const userHook = (callback: Function) => {
-    hooksUserGet.push(callback);
+export const userHook = (callback: Function,oldState:UserModel|number) => {
+    if(currentUser&&oldState!==currentUser){
+        callback(currentUser);
+    }
+    else{
+        hooksUserGet.add(callback);
+    }
 }
 
 export const permanentReloadUser = () => {
@@ -17,15 +22,15 @@ export const permanentReloadUser = () => {
         }
     ).catch((error) => {
         console.log(error);
+        updateUser(-1);
     });
 }
 
 permanentReloadUser();
 
-const updateUser = (dataUser: UserModel) => {
+const updateUser = (dataUser: UserModel|number) => {
     currentUser = dataUser;
     hooksUserGet.forEach(elem=>{elem(currentUser)})
-    hooksUserGet = [];
 }
 
 export const startRegistrationUser = (formData: RegModel): Promise<MessageInterface> => {
@@ -70,7 +75,7 @@ export const logOutUser = (): Promise<MessageInterface> => {
     return new Promise<MessageInterface>((resolve, reject) => {
         RESTRequest("GET", "/auth/logout").then((response) => {
                 resolve(response.data);
-                currentUser = null;
+                updateUser(-1)
             }
         ).catch((error) => {
             reject({message: error.data, code: error.status})

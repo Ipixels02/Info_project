@@ -3,39 +3,26 @@ import './customTheme.css'
 import React, {useState, useEffect, useRef, FC} from 'react';
 import {
     Button,
-    Container,
     Header,
     Nav,
-    Navbar,
     Content,
     Footer,
     Icon,
-    Grid,
-    Row,
-    Dropdown,
-    InputGroup,
-    Input,
-    Sidebar,
-    Sidenav,
-    FlexboxGrid, Col, ButtonToolbar
 } from 'rsuite';
 import {
-    HashRouter as Router,
     Switch,
     Route,
     Link, useHistory, useLocation
 } from "react-router-dom";
 import { Sling as Hamburger } from 'hamburger-react'
-import {
-    Desktop, Tablet, Mobile
-} from "./components/ResponsibleComponents";
 import {useMediaQuery} from "react-responsive";
 
-import {MainContent} from './components/mainContent';
-import {AboutUsPage} from './components/AboutUsPage';
-import {RisksPage} from './components/RisksPage';
+import {MainContentPage} from './ui/page/MainContentPage';
+import {AboutUsPage} from './ui/page/AboutUsPage';
+import {RisksPage} from './ui/page/RisksPage';
 
 import {userHook} from "./api/UserApi";
+import {PersonalAreaPage} from "./ui/page/PersonalAreaPage";
 
 
 function App() {
@@ -43,10 +30,10 @@ function App() {
     const isTabletOrMobile = useMediaQuery({query: '(max-width: 991px)'});
     const isMobileOpenNav = !isTabletOrMobile || isTabletOrMobile && isOpenNav;
     let location = useLocation();
+    let history = useHistory();
     const detActiveTab = (pageName: string): boolean => {
         return location.pathname == pageName;
     }
-    userHook(console.log);
     return (
         <>
             <Header className={"Header"}>
@@ -75,7 +62,7 @@ function App() {
                                 <Link to={"/contacts"}><Nav.Item active={detActiveTab("/contacts")}
                                                                  eventKey={"/contacts"}><span>Контакты</span></Nav.Item></Link>
                             </Nav>
-                            <Button className={"buttonPersonalArea"} color="cyan"><Icon
+                            <Button onClick={()=>{history.push("/lk")}} className={"buttonPersonalArea"} color="cyan"><Icon
                                 icon="avatar"/> Личный кабинет</Button>
                         </div>
                     </div>}
@@ -84,7 +71,7 @@ function App() {
             <Content>
                 <Switch>
                     <Route exact path={"/"}>
-                        <MainContent/>
+                        <MainContentPage/>
                     </Route>
                     <Route exact path={"/about"}>
                         <AboutUsPage/>
@@ -98,16 +85,17 @@ function App() {
                     <Route exact path={"/contacts"}>
                         <h1>here contacts</h1>
                     </Route>
+                    <Route exact path={"/lk"}>
+                        <PersonalAreaPage/>
+                    </Route>
                 </Switch>
             </Content>
             <Footer>
-                <Row>
-                    <div className={"site-copy"}>
-                        <p>
-                            Copyright © 2021 InProject.
-                        </p>
-                    </div>
-                </Row>
+                <div className={"site-copy"}>
+                    <p>
+                        Copyright © 2021 InProject.
+                    </p>
+                </div>
             </Footer>
         </>
     );

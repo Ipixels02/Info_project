@@ -1,36 +1,15 @@
 import React, {useState, useEffect, useRef, FC} from 'react';
 import {
     Button,
-    Container,
-    Header,
-    Nav,
-    Navbar,
-    Content,
-    Footer,
-    Icon,
-    Grid,
-    Row,
-    Dropdown,
-    InputGroup,
-    Input,
-    Sidebar,
-    Sidenav,
-    IconButton,
     FlexboxGrid, Col
 } from 'rsuite';
 
-import {
-    HashRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 import {FaPlayCircle} from 'react-icons/fa';
 import Particles from "react-tsparticles";
-import {particlesConfig} from "./ParticlesConfig";
+import {particlesConfig} from "../component/ParticlesConfig";
 import {useMediaQuery} from "react-responsive";
 
-export const MainContent = () => {
+export const MainContentPage = () => {
     const isTabletOrMobile = useMediaQuery({query: '(max-width: 991px)'});
     return (
         <>
