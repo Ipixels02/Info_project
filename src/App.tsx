@@ -35,6 +35,8 @@ import {MainContent} from './components/mainContent';
 import {AboutUsPage} from './components/AboutUsPage';
 import {RisksPage} from './components/RisksPage';
 
+import {userHook} from "./api/UserApi";
+
 
 function App() {
     const [isOpenNav, setOpenNav] = useState(false);
@@ -44,6 +46,7 @@ function App() {
     const detActiveTab = (pageName: string): boolean => {
         return location.pathname == pageName;
     }
+    userHook(console.log);
     return (
         <>
             <Header className={"Header"}>
