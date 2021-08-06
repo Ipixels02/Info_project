@@ -30,8 +30,10 @@ import {
     Desktop, Tablet, Mobile
 } from "./components/ResponsibleComponents";
 import {useMediaQuery} from "react-responsive";
+
 import {MainContent} from './components/mainContent';
 import {AboutUsPage} from './components/AboutUsPage';
+import {RisksPage} from './components/RisksPage';
 
 
 function App() {
@@ -45,10 +47,11 @@ function App() {
     return (
         <>
             <Header className={"Header"}>
+                <a href="#" className="navbar-brand logo">
+                    <img className="logo" alt="logo" style={{width: "60px"}} src="logo512.png"/>
+                </a>
                 <div style={{position: isTabletOrMobile && isOpenNav ? "fixed" : undefined}} className={"header_navigation"}>
-                    <a href="#" className="navbar-brand logo">
-                        <img className="logo" alt="logo" style={{width: "60px"}} src="logo512.png"/>
-                    </a>
+
                     {isTabletOrMobile && <div className={"mobileIcon"}>
                         <Hamburger toggled={isOpenNav} toggle={() => {
                             setOpenNav(!isOpenNav)
@@ -81,11 +84,10 @@ function App() {
                         <MainContent/>
                     </Route>
                     <Route exact path={"/about"}>
-                        <h1>here about</h1>
                         <AboutUsPage/>
                     </Route>
                     <Route exact path={"/risks"}>
-                        <h1>here risks</h1>
+                        <RisksPage/>
                     </Route>
                     <Route exact path={"/guarantees"}>
                         <h1>here guarantees</h1>
