@@ -64,19 +64,12 @@
 
 .about-block {
   /*background: url("./images/bg_about_us.svg") no-repeat center center, linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.5));*/
-  display: flex;
+  display: grid;
   position: relative;
   background-color: white;
   height: 180vh;
 }
-.about_grid {
-  display: table;
-  vertical-align: middle;
-  text-align: center;
-  width: 100%;
-  margin-right: 10%;
-  margin-left: 10%;
-}
+
 .styleImg {
   pointer-events: none;
   position: absolute;
@@ -85,7 +78,10 @@
 }
 
 .about_company {
+  font-family: 'Roboto Slab', serif;
+  color: #0d0d0d;
   vertical-align: top;
+  padding: 30% 0 0 20%;
 }
 
 
@@ -142,6 +138,12 @@
   .buttonPersonalArea {
     margin-left: 0;
     margin-right: 20px;
+  }
+
+}
+@media only screen and (max-width: 555px) {
+  .about_company h1 {
+    font-size: 19px;
   }
 }
 
