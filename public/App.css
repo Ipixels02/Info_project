@@ -9,7 +9,7 @@
   display: contents;
 }
 .navbar-brand {
-  padding: 0px 20px;
+  padding: 0 20px;
 }
 .responsive-navbar-nav {
   display: flex;
@@ -20,32 +20,64 @@
   font-family: 'Prata', serif;
   font-size: 20px;
 }
-@media {responsive-navbar-nav span} {
-  font-family: 'Prata', serif;
-  font-size: 10px;
-}
 
 .nav_items {
   padding: 10px 15px;
   display: flex;
 }
-.personal_office {
-  padding: 0px 30px;
+
+.buttonPersonalArea {
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .main-block {
   background-size: cover;
   background: url("./images/BG.png") no-repeat fixed center center;
-  display: flex;
+  height: 100vh;
+}
+.main-middle-text {
+  font-family: Montserrat;
+  color: #ffffff;
+  display: block;
+  position: relative;
+  top: calc(50% - 124px);
+  justify-content: center;
   vertical-align: middle;
   text-align: center;
-  height: 90vh;
 }
+.main-middle-text h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 134.09%;
+  letter-spacing: 0.02em;
+}
+.main-middle-text h5 {
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 23px;
+}
+
 
 .about-block {
   background: url("./images/about_us.jpg") no-repeat fixed center center;
   display: flex;
-  height: 90vh;
+  height: 100vh;
+}
+.about_grid {
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.buttonS {
+  margin: 15px 0 15px 0
 }
 
 .site-copy {
@@ -53,6 +85,52 @@
   position: fixed;
   display: flex;
   width: 100%;
+  height: 10vh;
+}
+
+/*Mobile styles*/
+@media only screen and (max-width: 991px) {
+  .Header {
+    padding: 0;
+    z-index: 999;
+  }
+  .header_navigation {
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+    display: grid;
+    align-items: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    list-style: none;
+    top: 0;
+    left: 0;
+    transition: 0.2s ease-in-out;
+    opacity: 100%;
+  }
+  .mobileIcon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+  }
+  .nav_items {
+    display: block;
+  }
+  .responsive-navbar-nav {
+    margin-right: 0;
+    padding: 0;
+    margin-top: 0;
+  }
+  .responsive-navbar-nav span{
+    font-family: 'Prata', serif;
+    font-size: 20px;
+  }
+  .buttonPersonalArea {
+    margin-left: 0;
+    margin-right: 20px;
+  }
 }
 
  /*Styles for scroll*/

@@ -25,12 +25,13 @@ import {
     Route,
     Link, useHistory, useLocation
 } from "react-router-dom";
-
+import { Sling as Hamburger } from 'hamburger-react'
 import {
     Desktop, Tablet, Mobile
 } from "./components/ResponsibleComponents";
 import {useMediaQuery} from "react-responsive";
 import {MainContent} from './components/mainContent';
+import {AboutUsPage} from './components/AboutUsPage';
 
 
 function App() {
@@ -44,10 +45,15 @@ function App() {
     return (
         <>
             <Header className={"Header"}>
-                <div className={"header_navigation"}>
+                <div style={{position: isTabletOrMobile && isOpenNav ? "fixed" : undefined}} className={"header_navigation"}>
                     <a href="#" className="navbar-brand logo">
                         <img className="logo" alt="logo" style={{width: "60px"}} src="logo512.png"/>
                     </a>
+                    {isTabletOrMobile && <div className={"mobileIcon"}>
+                        <Hamburger toggled={isOpenNav} toggle={() => {
+                            setOpenNav(!isOpenNav)
+                        }}/>
+                    </div>}
                     {isMobileOpenNav && <div className="responsive-navbar-nav">
                         <div className="nav_items">
                             <Nav appearance="subtle" vertical={isTabletOrMobile}>
@@ -63,16 +69,9 @@ function App() {
                                 <Link to={"/contacts"}><Nav.Item active={detActiveTab("/contacts")}
                                                                  eventKey={"/contacts"}><span>Контакты</span></Nav.Item></Link>
                             </Nav>
-                            <Button style={{marginLeft: "30px", marginRight: "30px"}} color="cyan"><Icon
+                            <Button className={"buttonPersonalArea"} color="cyan"><Icon
                                 icon="avatar"/> Личный кабинет</Button>
                         </div>
-                    </div>}
-                    {isTabletOrMobile && <div>
-                        <Button onClick={() => {
-                            setOpenNav(!isOpenNav)
-                        }}>
-                            <Icon icon="bars" size={"2x"}/>
-                        </Button>
                     </div>}
                 </div>
             </Header>
@@ -83,6 +82,7 @@ function App() {
                     </Route>
                     <Route exact path={"/about"}>
                         <h1>here about</h1>
+                        <AboutUsPage/>
                     </Route>
                     <Route exact path={"/risks"}>
                         <h1>here risks</h1>
