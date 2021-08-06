@@ -6,8 +6,7 @@ export const RESTRequest = (method:sendMethod, url:string, body?:object|null) =>
     return axios(
         {
             method: method,
-            //url: url, //for prod
-            url: "/rest" + url, //for prod
+            url: "/info_back" + url,
             headers: headerGenerator(),
             data: body
         }
@@ -15,13 +14,6 @@ export const RESTRequest = (method:sendMethod, url:string, body?:object|null) =>
 }
 
 const headerGenerator =() =>{
-    if (localStorage.authToken && localStorage.authToken !== "undefined") {
-        return {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': localStorage.authToken
-        };
-    }
     return {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
