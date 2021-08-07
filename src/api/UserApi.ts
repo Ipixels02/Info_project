@@ -11,9 +11,7 @@ export const userHook = (callback: Function,oldState:UserModel|number) => {
     if(currentUser&&oldState!==currentUser){
         callback(currentUser);
     }
-    else{
         hooksUserGet.add(callback);
-    }
 }
 
 export const permanentReloadUser = () => {

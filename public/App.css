@@ -1,150 +1,201 @@
 .Header {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  background: rgba(115, 111, 111, 0.48);
-  width: 100%;
-  z-index: 999;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(115, 111, 111, 0.48);
+    width: 100%;
+    z-index: 999;
 }
+
 .header_navigation {
-  display: contents;
+    display: contents;
 }
+
 .navbar-brand {
-  padding: 0 20px;
+    padding: 0 20px;
 }
+
 .responsive-navbar-nav {
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
+    display: flex;
+    align-items: center;
+    margin-right: -24px;
 }
+
 .responsive-navbar-nav span {
-  font-family: 'Prata', serif;
-  font-size: 20px;
+    font-family: 'Prata', serif;
+    font-size: 20px;
 }
 
 .nav_items {
-  padding: 10px 15px;
-  display: flex;
+    padding: 10px 15px;
+    display: flex;
 }
 
 .buttonPersonalArea {
-  margin-left: 30px;
-  margin-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .main-block {
-  background-size: cover;
-  /*background: url("./images/BG.png") no-repeat fixed center center;*/
-  height: 100vh;
+    background-size: cover;
+    /*background: url("./images/BG.png") no-repeat fixed center center;*/
+    height: 100vh;
 }
+
 .main-middle-text {
-  font-family: Montserrat;
-  color: #ffffff;
-  display: block;
-  position: relative;
-  top: calc(50% - 124px);
-  justify-content: center;
-  vertical-align: middle;
-  text-align: center;
+    font-family: Montserrat;
+    color: #ffffff;
+    display: block;
+    position: relative;
+    top: calc(50% - 124px);
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
 }
+
 .main-middle-text h1 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 48px;
-  line-height: 134.09%;
-  letter-spacing: 0.02em;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 134.09%;
+    letter-spacing: 0.02em;
 }
+
 .main-middle-text h5 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 19px;
-  line-height: 23px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 23px;
 }
 
 
 .about-block {
-  /*background: url("./images/bg_about_us.svg") no-repeat center center, linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.5));*/
-  display: grid;
-  position: relative;
-  background-color: white;
-  height: 180vh;
+    /*background: url("./images/bg_about_us.svg") no-repeat center center, linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.5));*/
+    display: grid;
+    position: relative;
+    background-color: white;
+    height: 180vh;
 }
 
 .styleImg {
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
 }
 
 .about_company {
-  font-family: 'Roboto Slab', serif;
-  color: #0d0d0d;
-  vertical-align: top;
-  padding: 30% 0 0 20%;
+    font-family: 'Roboto Slab', serif;
+    color: #0d0d0d;
+    vertical-align: top;
+    padding: 30% 0 0 20%;
 }
 
+.about_company_textBlock {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin-top: 55%;
+}
+
+.about_company_textBlock h2 {
+    font-size: 34px;
+}
 
 .buttonS {
-  margin: 15px 0 15px 0
+    margin: 15px 0 15px 0
+}
+
+.formBlock {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    position: relative;
+    background-size: cover;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("./images/charles-forerunner-3fPXt37X6UQ-unsplash.jpg") no-repeat center center;
+    height: 40vh;
+    text-align: center;
+}
+
+.formBlockText {
+    justify-content: center;
+}
+
+.formBlock h3 {
+    font-family: 'Open Sans', sans-serif;
+    color: #0d0d0d;
+    margin-bottom: 1%;
 }
 
 .site-copy {
-  background: #FFC59C;
-  position: fixed;
-  display: flex;
-  width: 100%;
-  height: 10vh;
+    background: #1b0d1c;
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    height: 10vh;
 }
 
 /*Mobile styles*/
 @media only screen and (max-width: 991px) {
-  .Header {
-    padding: 0;
-    z-index: 999;
-  }
-  .header_navigation {
-    width: 100%;
-    height: 100%;
-    background: #0d0d0d;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-  }
-  .logo {
-  z-index: 999;
-  }
-  .mobileIcon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 18%);
-  }
-  .nav_items {
-    display: block;
-  }
-  .responsive-navbar-nav {
-    margin-right: 0;
-    padding: 0;
-    margin-top: 0;
-  }
-  .responsive-navbar-nav span{
-    font-family: 'Prata', serif;
-    font-size: 20px;
-  }
+    .Header {
+        padding: 0;
+        z-index: 999;
+    }
 
-  .buttonPersonalArea {
-    margin-left: 0;
-    margin-right: 20px;
-  }
+    .header_navigation {
+        width: 100%;
+        height: 100%;
+        background: #0d0d0d;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        z-index: 999;
+    }
+
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 18%);
+    }
+
+    .nav_items {
+        display: block;
+    }
+
+    .responsive-navbar-nav {
+        margin-right: 0;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .responsive-navbar-nav span {
+        font-family: 'Prata', serif;
+        font-size: 20px;
+    }
+
+    .buttonPersonalArea {
+        margin-left: 0;
+        margin-right: 20px;
+    }
 
 }
+
 @media only screen and (max-width: 555px) {
-  .about_company h1 {
-    font-size: 19px;
-  }
+    .main-middle-text h5 {
+        font-size: 3vw;
+    }
+
+    .main-middle-text h1 {
+        font-size: 6vw;
+    }
+
+    .about_company h1 {
+        font-size: 19px;
+    }
 }
 
- /*Styles for scroll*/
+/*Styles for scroll*/

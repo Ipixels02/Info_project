@@ -1,4 +1,3 @@
-// import 'rsuite/dist/styles/rsuite-default.css';
 import './customTheme.css'
 import React, {useState, useEffect, useRef, FC} from 'react';
 import {
