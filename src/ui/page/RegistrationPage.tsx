@@ -7,7 +7,7 @@ import {
     HashRouter as Router,
 } from "react-router-dom";
 
-export const RisksPage = () => {
+export const RegistrationPage = () => {
     return (
         <Router>
 

@@ -19,6 +19,8 @@ import {useMediaQuery} from "react-responsive";
 import {MainContentPage} from './ui/page/MainContentPage';
 import {AboutUsPage} from './ui/page/AboutUsPage';
 import {RisksPage} from './ui/page/RisksPage';
+import {GuaranteesPage} from './ui/page/GuaranteesPage';
+import {ContactPage} from './ui/page/ContactPage';
 
 import {userHook} from "./api/UserApi";
 import {PersonalAreaPage} from "./ui/page/PersonalAreaPage";
@@ -79,10 +81,10 @@ function App() {
                         <RisksPage/>
                     </Route>
                     <Route exact path={"/guarantees"}>
-                        <h1>here guarantees</h1>
+                        <GuaranteesPage/>
                     </Route>
                     <Route exact path={"/contacts"}>
-                        <h1>here contacts</h1>
+                        <ContactPage/>
                     </Route>
                     <Route exact path={"/lk"}>
                         <PersonalAreaPage/>
