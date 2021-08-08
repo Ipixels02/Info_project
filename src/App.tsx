@@ -37,7 +37,7 @@ function App() {
     }
     return (
         <>
-            <Header className={"Header"}>
+            <Header className={"header"}>
                 <a href="#" className="navbar-brand logo">
                     <img className="logo" alt="logo" style={{width: "60px"}} src="logo512.png"/>
                 </a>

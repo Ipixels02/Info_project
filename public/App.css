@@ -1,4 +1,4 @@
-.Header {
+.header {
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -101,8 +101,35 @@
     font-size: 34px;
 }
 
+.risks {
+    background: url("./images/manChart.jpeg") no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    height: 130vh;
+    padding-top: 100px;
+    color: white;
+    text-shadow: 2px 2px 2px #0d0d0d;
+}
+
+.guarantees {
+    background-color: #1a1718;
+    text-align: center;
+    height: 120vh;
+    padding-top: 100px;
+    color: white;
+}
+.guaranteesText {
+    margin-top: 20%;
+    color: #e9b370;
+}
+
+.guaranteesItem {
+    border-right: 1px solid #a09a9c;
+    padding: 0 2em;
+}
+
 .buttonS {
-    margin: 15px 0 15px 0
+    margin: 15px 0 15px 0;
 }
 
 .formBlock {
@@ -123,6 +150,15 @@
     font-family: 'Open Sans', sans-serif;
     color: #0d0d0d;
     margin-bottom: 1%;
+}
+
+.footerFlexed {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    position: relative;
+    background-size: cover;
+    height: 40vh;
+    text-align: center;
 }
 
 .site-copy {
@@ -184,6 +220,10 @@
 
     .about-block {
         height: 100%;
+    }
+
+    .risks {
+        height: 100%
     }
 
 }

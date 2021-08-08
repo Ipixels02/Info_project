@@ -9,7 +9,7 @@ import {
 export const RisksPage = () => {
     return (
         <Router>
-            <div style={{textAlign: "center", height: "130vh", paddingTop: "100px"}}>
+            <div className={"risks"}>
                 <h1>Риски</h1>
                 <FlexboxGrid style={{padding: "0 4%", marginTop: "5 %"}} justify="space-around" align="top">
                     <FlexboxGrid.Item componentClass={Col} colspan={12} md={8}>
