@@ -6,7 +6,7 @@ import {
     Nav,
     Content,
     Footer,
-    Icon,
+    Icon, Row, Col, Grid,
 } from 'rsuite';
 import {
     Switch,
@@ -51,11 +51,18 @@ function App() {
                     {isMobileOpenNav && <div className="responsive-navbar-nav">
                         <div className="nav_items">
                             <Nav appearance="subtle" vertical={isTabletOrMobile}>
-                                <Link to={"/"}><Nav.Item
-                                    active={detActiveTab("/")}><span>Главная</span></Nav.Item></Link>
-                                <Link to={"/about"}><Nav.Item
-                                    active={detActiveTab("/about")}><span>О нас</span></Nav.Item></Link>
-                                {/*<Nav.Item href="/projects">Предлагаемые проекты</Nav.Item>*/}
+                                {/*<Link to={"/"}></Link>*/}
+                                <HashLink smooth to="/#main">
+                                    <Nav.Item
+                                        active={detActiveTab("#main")}><span>Главная</span></Nav.Item>
+                                </HashLink>
+                                <HashLink smooth to="/#onas">
+                                    <Nav.Item active={detActiveTab("#onas")}
+                                              eventKey={"/about"}><span>О нас</span></Nav.Item>
+                                </HashLink>
+                                {/*<Link to={"/about"}></Link>*/}
+                                {user!==-1?<Link to={"/projects"}><Nav.Item
+                                    active={detActiveTab("/projects")}><span>Проекты</span></Nav.Item></Link>:null}
                                 <Link to={"/risks"}><Nav.Item
                                     active={detActiveTab("/risks")}><span>Риски</span></Nav.Item></Link>
                                 <Link to={"/guarantees"}><Nav.Item active={detActiveTab("/guarantees")}
@@ -91,7 +98,58 @@ function App() {
                     </Route>
                 </Switch>
             </Content>
-            <Footer>
+            <div style={{marginBottom:"49vh",width:"0"}}>
+            </div>
+            <Footer className={"styleFooter"}>
+                <Grid style={{width: "100%"}}>
+                    <Row>
+                        <div className={"footerFlexed"}>
+                            <Col md={12}>
+                                <h4>Официальные каналы</h4>
+                                <div style={{display: "flex", justifyContent: "center"}}>
+                                    <div onClick={() => {
+                                        alert("instagram")
+                                    }} className={"styleIcons"}>
+                                        <div style={{width: "32px", minWidth: "32px"}}><FaInstagram width={"16"}
+                                                                                                    size={"1x"}/>
+                                        </div>
+                                    </div>
+                                    <div onClick={() => {
+                                        alert("YouTube")
+                                    }} className={"styleIcons"}>
+                                        <div style={{width: "32px", minWidth: "16px"}}><FaYoutube width={"16"}
+                                                                                                  size={"1x"}/>
+                                        </div>
+                                    </div>
+                                    <div onClick={() => {
+                                        alert("Mail")
+                                    }} className={"styleIcons"}>
+                                        <div style={{width: "32px", minWidth: "16px"}}><FaEnvelope width={"16"}
+                                                                                                   size={"1x"}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={10}>
+                                <div onClick={() => {
+                                    alert("Video")
+                                }} style={{
+                                    justifyContent: "center",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    marginTop: "20px",
+                                    padding: "12px 15px 10px 15px",
+                                    border: "solid 2px #e9b370",
+
+                                }}>
+                                    <div style={{width: "32px", minWidth: "16px", marginTop: "5px"}}><HiOutlineArrowRight width={"16"}
+                                                                                                                          size={"1x"}/></div>
+                                    <span style={{marginLeft: "10px", fontSize: "30px"}}>Начать свой проект</span>
+                                </div>
+                            </Col>
+                        </div>
+                    </Row>
+                </Grid>
                 <div className={"site-copy"}>
                     <p>
                         Copyright © 2021 InProject.
