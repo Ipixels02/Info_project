@@ -7,7 +7,8 @@ export const RisksPage = () => {
         <>
             <div className={"risks"}>
                 <h1>Риски</h1>
-                <FlexboxGrid style={{padding: "0 4%", marginTop: "5 %"}} justify="space-around" align="top">
+                <FlexboxGrid style={{padding: "0 4%"}}
+                             justify="space-around" align="top">
                     <FlexboxGrid.Item componentClass={Col} colspan={12} md={8}>
                         <img style={{width: "250px", marginBottom: "20%"}}
                              src={process.env.PUBLIC_URL + '/images/man_risks.jpg'} alt={"Описание 1 пикчи"}/>

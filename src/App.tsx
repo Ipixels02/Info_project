@@ -56,8 +56,8 @@ function App() {
                                     <Nav.Item
                                         active={detActiveTab("#main")}><span>Главная</span></Nav.Item>
                                 </HashLink>
-                                <HashLink smooth to="/#onas">
-                                    <Nav.Item active={detActiveTab("#onas")}
+                                <HashLink smooth to="/#about">
+                                    <Nav.Item active={detActiveTab("#about")}
                                               eventKey={"/about"}><span>О нас</span></Nav.Item>
                                 </HashLink>
                                 {/*<Link to={"/about"}></Link>*/}
@@ -83,6 +83,9 @@ function App() {
                     </Route>
                     <Route exact path={"/about"}>
                         <AboutUsPage/>
+                    </Route>
+                    <Route exact path={"/projects"}>
+                        <ProjectsPage/>
                     </Route>
                     <Route exact path={"/risks"}>
                         <RisksPage/>
@@ -131,9 +134,8 @@ function App() {
                                 </div>
                             </Col>
                             <Col md={10}>
-                                <div onClick={() => {
-                                    alert("Video")
-                                }} style={{
+                                <div onClick={() => {setModal(true)}}
+                                     style={{
                                     justifyContent: "center",
                                     display: "flex",
                                     alignItems: "center",

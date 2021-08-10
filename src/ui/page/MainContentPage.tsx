@@ -1,7 +1,13 @@
 import {
     Button,
-    FlexboxGrid, Col
+    FlexboxGrid, Col, Divider
 } from 'rsuite';
+import {
+    Switch,
+    Route,
+    Link, useHistory, useLocation
+} from "react-router-dom";
+import {Modal} from 'rsuite';
 
 import {FaPlayCircle} from 'react-icons/fa';
 import Particles from "react-tsparticles";
@@ -21,58 +27,60 @@ export const MainContentPage = () => {
                     <h5>Передовая инвестиционная компания</h5>
                     <h1>Сайт-Агрегатор инвестиционных <br/> и финансовых проектов</h1>
 
-                    <div
-                        style={{
-                            display: "flex",
-                            fontSize: "20px",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            padding: "10px 15px"
-                        }}>
-                        <FlexboxGrid justify={"space-around"} align={"middle"}>
-                            <FlexboxGrid.Item componentClass={Col} colspan={13} md={11}><Button color={"cyan"}
-                                                                                                size={'lg'}><span
-                                style={{
-                                    fontSize: "20px",
-                                    wordBreak: "break-word"
-                                }}>Участвовать в программе</span></Button></FlexboxGrid.Item>
-                            <FlexboxGrid.Item componentClass={Col} colspan={13} md={13}>
-                                <div onClick={() => {
-                                    alert("Video")
-                                }} style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    marginLeft: isTabletOrMobile ? undefined : "40px",
-                                    marginTop: isTabletOrMobile ? "20px" : undefined,
-                                    padding: "12px 15px 10px 15px",
-                                    border: "solid 2px white",
-                                    borderRadius: "100px"
-                                }}>
-                                    <div style={{width: "54px", minWidth: "32px"}}><FaPlayCircle width={"16"}
-                                                                                                 size={"1x"}/></div>
-                                    <span style={{marginLeft: "10px"}}>Посмотреть видео</span>
-                                </div>
-                            </FlexboxGrid.Item>
-                        </FlexboxGrid>
+                        <div
+                            style={{
+                                display: "flex",
+                                fontSize: "20px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                padding: "10px 15px"
+                            }}>
+                            <FlexboxGrid justify={"space-around"} align={"middle"}>
+                                <FlexboxGrid.Item componentClass={Col} colspan={13} md={11}>
+                                    <Button onClick={() => {setModal(true)}} color={"violet"}
+                                            size={'lg'}><span
+                                        style={{
+                                            fontSize: "20px",
+                                            wordBreak: "break-word"
+                                        }}>Участвовать в программе</span></Button></FlexboxGrid.Item>
+                                <FlexboxGrid.Item componentClass={Col} colspan={13} md={13}>
+                                    <div onClick={() => {
+                                        alert("Video")
+                                    }} style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        marginLeft: isTabletOrMobile ? undefined : "40px",
+                                        marginTop: isTabletOrMobile ? "20px" : undefined,
+                                        padding: "12px 15px 10px 15px",
+                                        border: "solid 2px white",
+                                        borderRadius: "100px"
+                                    }}>
+                                        <div style={{width: "54px", minWidth: "32px"}}><FaPlayCircle width={"16"}
+                                                                                                     size={"1x"}/></div>
+                                        <span style={{marginLeft: "10px"}}>Посмотреть видео</span>
+                                    </div>
+                                </FlexboxGrid.Item>
+                            </FlexboxGrid>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={"about-block"}>
-                <img className={"styleImg"} src={process.env.PUBLIC_URL + '/images/bg_about_us.svg'}/>
-                <FlexboxGrid style={{padding: "0 4%"}} justify="space-between" align="top">
-                    <FlexboxGrid.Item componentClass={Col} colspan={16} md={8} order={1}>
-                        <div className={"about_company"}>
-                            <h1 style={{verticalAlign: "top"}}>О компании</h1>
-                            <h5 style={{color: "#7A7A7A"}}>Помогаем обрести финансовую подушку с 2021 года</h5>
-                        </div>
-                    </FlexboxGrid.Item>
-                    <FlexboxGrid.Item componentClass={Col} colspan={12} md={6}
-                                      order={isTabletOrMobile ? 3 : 2}></FlexboxGrid.Item>
-                    <FlexboxGrid.Item style={{marginTop: "auto"}} componentClass={Col} colspan={8} md={8}
-                                      order={isTabletOrMobile ? 2 : 3}>
-                        <Button color={"cyan"} size={'lg'}>Приссоединится</Button>
-                    </FlexboxGrid.Item>
-                </FlexboxGrid>
+                <div id={"about"} className={"about-block"}>
+                    <img className={"styleImg"} src={process.env.PUBLIC_URL + '/images/bg_about_us.svg'}/>
+                    <FlexboxGrid style={{padding: "0 4%"}} justify="space-between" align="top">
+                        <FlexboxGrid.Item componentClass={Col} colspan={16} md={8} order={1}>
+                            <div className={"about_company"}>
+                                <h1 style={{verticalAlign: "top"}}>О компании</h1>
+                                <Divider style={{background: "#3c1348", height: "2px", borderRadius: "10px"}} />
+                                <h5 style={{color: "#7A7A7A"}}>Помогаем обрести финансовую подушку с 2021 года</h5>
+                            </div>
+                        </FlexboxGrid.Item>
+                        <FlexboxGrid.Item componentClass={Col} colspan={12} md={6}
+                                          order={isTabletOrMobile ? 3 : 2}></FlexboxGrid.Item>
+                        <FlexboxGrid.Item style={{marginTop: "auto"}} componentClass={Col} colspan={8} md={8}
+                                          order={isTabletOrMobile ? 2 : 3}>
+                            <Button onClick={() => {setModal(true)}} color={"cyan"} size={'lg'}>Приссоединится</Button>
+                        </FlexboxGrid.Item>
+                    </FlexboxGrid>
 
                 <FlexboxGrid style={{padding: "0 4%"}} justify="space-between" align="top">
                     <FlexboxGrid.Item componentClass={Col} colspan={16} md={6}>

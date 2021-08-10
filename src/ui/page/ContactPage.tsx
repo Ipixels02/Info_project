@@ -10,12 +10,12 @@ import {
 export const ContactPage = () => {
     return (
         <Router>
-            <div style={{textAlign: "center", height: "130vh", paddingTop: "100px"}}>
+            <div className={"contactBlock"}>
                 <h1>Наши контакты</h1>
-                <FlexboxGrid style={{padding: "0 4%", marginTop: "10%"}} justify="space-around" align="top">
+                <FlexboxGrid style={{padding: "0 4%", marginTop: "5%"}} justify="space-around" align="top">
                     <FlexboxGrid.Item componentClass={Col} colspan={12} md={12}>
-                        <h4>Хотите связаться с нами, напишите сообщение ниже:</h4>
-                        <Form>
+                        <h4>Хотите связаться с нами, напишите сообщение ниже:</h4><br/>
+                        <Form style={{color: "black"}}>
                             <FormGroup>
                                 <FormControl name={"name"} placeholder={"Ваше имя"}/>
                             </FormGroup>
@@ -31,7 +31,7 @@ export const ContactPage = () => {
                             <FormGroup>
                                 <FormControl name={"textarea"} rows={5} componentClass={"textarea"} placeholder={"Ваше телефон"}/>
                             </FormGroup>
-                            <Button color={"cyan"} size={'lg'}><span
+                            <Button size={'lg'}><span
                                 style={{
                                     fontSize: "20px",
                                     wordBreak: "break-word"

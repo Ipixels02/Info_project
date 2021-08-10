@@ -101,8 +101,45 @@
     font-size: 34px;
 }
 
+.projectStyle {
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
+    background-size: cover;
+    /*height: 100vh;*/
+    padding-top: 100px;
+    color: white;
+    text-shadow: 2px 2px 2px #0d0d0d;
+}
+
+.projectBlock {
+    background-size: cover;
+    text-align: center;
+    height: 140vh;
+    padding-top: 100px;
+    color: white;
+}
+.wrap {
+    background-color: #331e58;
+    box-shadow: 0 6px 23px -2px rgb(0 0 0.5);
+    margin-bottom: 10%;
+    /*border: 2px solid #000;*/
+    border-radius: 15px;
+    height: 80vh;
+    max-width: 90%;
+}
+.wrap img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.aboutProject {
+    margin-top: 5%;
+    text-align: center;
+
+}
+
 .risks {
-    background: url("./images/manChart.jpeg") no-repeat center center;
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     background-size: cover;
     text-align: center;
     height: 130vh;
@@ -110,9 +147,14 @@
     color: white;
     text-shadow: 2px 2px 2px #0d0d0d;
 }
+.risks img {
+    box-shadow: 0 6px 60px -2px rgb(0 0 0.5);
+    border-radius: 15px;
+}
 
 .guarantees {
-    background-color: #1a1718;
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     text-align: center;
     height: 120vh;
     padding-top: 100px;
@@ -130,6 +172,24 @@
 
 .buttonS {
     margin: 15px 0 15px 0;
+}
+
+.contactBlock {
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
+    color: #ffffff;
+    text-align: center;
+    height: 130vh;
+    padding-top: 100px;
+}
+
+.registrationPage {
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 .formBlock {
