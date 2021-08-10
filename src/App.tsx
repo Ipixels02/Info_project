@@ -61,8 +61,8 @@ function App() {
                                               eventKey={"/about"}><span>О нас</span></Nav.Item>
                                 </HashLink>
                                 {/*<Link to={"/about"}></Link>*/}
-                                {user!==-1?<Link to={"/projects"}><Nav.Item
-                                    active={detActiveTab("/projects")}><span>Проекты</span></Nav.Item></Link>:null}
+                                {user !== -1 ? <Link to={"/projects"}><Nav.Item
+                                    active={detActiveTab("/projects")}><span>Проекты</span></Nav.Item></Link> : null}
                                 <Link to={"/risks"}><Nav.Item
                                     active={detActiveTab("/risks")}><span>Риски</span></Nav.Item></Link>
                                 <Link to={"/guarantees"}><Nav.Item active={detActiveTab("/guarantees")}
@@ -101,7 +101,7 @@ function App() {
                     </Route>
                 </Switch>
             </Content>
-            <div style={{marginBottom:"49vh",width:"0"}}>
+            <div style={{marginBottom: "49vh", width: "0"}}>
             </div>
             <Footer className={"styleFooter"}>
                 <Grid style={{width: "100%"}}>
@@ -134,18 +134,21 @@ function App() {
                                 </div>
                             </Col>
                             <Col md={10}>
-                                <div onClick={() => {setModal(true)}}
+                                <div onClick={() => {
+                                    setModal(true)
+                                }}
                                      style={{
-                                    justifyContent: "center",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    marginTop: "20px",
-                                    padding: "12px 15px 10px 15px",
-                                    border: "solid 2px #e9b370",
+                                         justifyContent: "center",
+                                         display: "flex",
+                                         alignItems: "center",
+                                         marginTop: "20px",
+                                         padding: "12px 15px 10px 15px",
+                                         border: "solid 2px #e9b370",
 
-                                }}>
-                                    <div style={{width: "32px", minWidth: "16px", marginTop: "5px"}}><HiOutlineArrowRight width={"16"}
-                                                                                                                          size={"1x"}/></div>
+                                     }}>
+                                    <div className={"startProjectButton"} style={{width: "32px", minWidth: "16px", marginTop: "5px"}}>
+                                        <HiOutlineArrowRight width={"16"}
+                                                             size={"1x"}/></div>
                                     <span style={{marginLeft: "10px", fontSize: "30px"}}>Начать свой проект</span>
                                 </div>
                             </Col>

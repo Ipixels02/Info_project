@@ -142,7 +142,7 @@
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     background-size: cover;
     text-align: center;
-    height: 130vh;
+    /*height: 130vh;*/
     padding-top: 100px;
     color: white;
     text-shadow: 2px 2px 2px #0d0d0d;
@@ -156,7 +156,7 @@
     background: rgb(42,19,59);
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     text-align: center;
-    height: 120vh;
+    /*height: 120vh;*/
     padding-top: 100px;
     color: white;
 }
@@ -179,7 +179,7 @@
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     color: #ffffff;
     text-align: center;
-    height: 130vh;
+    /*height: 130vh;*/
     padding-top: 100px;
 }
 
@@ -190,6 +190,36 @@
     padding: 100px;
     display: flex;
     justify-content: center;
+}
+
+.loginPage {
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPageLoading {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personalAreaPage {
+    background: rgb(42,19,59);
+    background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
+    padding-top: 10%;
+    height: 110vh;
+    width: 100%;
+}
+
+.personalAreaPage span {
+    color: white;
 }
 
 .formBlock {
@@ -234,6 +264,14 @@
     align-items: center;
     padding: 12px 15px 10px 15px;
     color: #e9b370;
+}
+.startProjectButton {
+    width: 32px;
+    min-width: 16px;
+    margin-top: 5px;
+}
+.startProjectButton:hover {
+    background-color: rgb(233, 179, 112);
 }
 
 .site-copy {
@@ -300,6 +338,9 @@
     .risks {
         height: 100%
     }
+    .personalAreaPage {
+        padding-top: 20%;
+    }
 
 }
 
@@ -314,6 +355,10 @@
 
     .about_company h1 {
         font-size: 19px;
+    }
+
+    .personalAreaPage {
+        padding-top: 20%;
     }
 }
 

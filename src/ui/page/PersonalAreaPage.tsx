@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, FC} from 'react';
 import {HashRouter as Router} from "react-router-dom";
 import {logOutUser, permanentReloadUser, userHook} from "../../api/UserApi";
-import {Button, Icon} from "rsuite";
+import {Button, Icon, IconButton, Input, InputGroup, Panel, PanelGroup} from "rsuite";
 import {UserModel} from "../../api/models";
 import {LoginComponent} from "../component/LoginComponent";
 
@@ -9,8 +9,7 @@ export const PersonalAreaPage = () => {
     const [user, setUser] = useState<UserModel|number>(1);
     userHook(setUser,user);
     if (user === -1) {
-        return <div
-            style={{width: "100vw", height: "80vh", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        return <div className={"loginPage"}>
             <LoginComponent/>
         </div>
     }
@@ -24,15 +23,19 @@ export const PersonalAreaPage = () => {
     }
     const normilizedUser = user as UserModel;
     return (
-        <>
-            <div style={{height: "64px", width: "100%"}}/>
-            <div>
-                <span>Добрый день, {normilizedUser.fullName}!</span>
-                <br/>
-                <span>Почта, {normilizedUser.email}!</span>
-                <br/>
-                <Button onClick={()=>{logOutUser()}}>Выйти</Button>
-            </div>
-        </>
+        <div className={"personalAreaPage"}>
+            <span style={{color:"white"}}><h3>Привет, {normilizedUser.fullName}!</h3></span>
+            <PanelGroup accordion>
+                <Panel bodyFill shaded header={<span>Личные данные</span>}>
+                    <PersonalDataComponent defaultValue={normilizedUser}/>
+                </Panel>
+                <Panel bodyFill shaded header={<span>Проекты</span>} defaultExpanded>
+                    <ProjectsComponent/>
+                </Panel>
+                <Panel bodyFill shaded header={<span>Команда</span>}>
+                    <CommandComponent/>
+                </Panel>
+            </PanelGroup>
+        </div>
     );
 }
