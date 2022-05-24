@@ -1,7 +1,11 @@
 import React, {useState, useEffect, useRef, FC} from 'react';
 import {
-    Button, Col, FlexboxGrid, Grid, Row,
+    Alert,
+    Button, Col, FlexboxGrid, Grid, Icon, Row,
 } from 'rsuite';
+import {useAsyncRequest} from "../../util/useAsyncRequest";
+import {getProjects} from "../../api/ProjectApi";
+import {ProjectEntity} from "../../api/models";
 
 
 export const ProjectsPage = () => {
@@ -12,11 +16,11 @@ export const ProjectsPage = () => {
 
     useEffect(() => {
         refreshFnProject();
-    }, [])
+    }, []);
     return (
         <div>
             <div className={"projectStyle"}>
-                <FlexboxGrid style={{padding: "0 4%", paddingTop:"15%", width: "100%"}}
+                <FlexboxGrid style={{padding: "10% 4% 0", width: "100%"}}
                              justify="space-between">
                     <FlexboxGrid.Item componentClass={Col} colspan={16} md={6}>
                         <h1>Инвестиционные проекты</h1>
@@ -25,26 +29,34 @@ export const ProjectsPage = () => {
                     <FlexboxGrid.Item componentClass={Col} colspan={12} md={8}/>
                 </FlexboxGrid>
 
-                <FlexboxGrid style={{padding: "0 4%", paddingTop:"10%"}}
+                <FlexboxGrid style={{padding: "10% 4% 0"}}
                              justify="space-around">
-                    {dataProject?(dataProject as Array<ProjectModel>).slice(0, 6).map(project => {
+                    {dataProject ? (dataProject as Array<ProjectEntity>).slice(0, 6).map(project => {
                         //TOOD: кастомная модель
-                       return (
-                            <FlexboxGrid.Item componentClass={Col} colspan={16} md={8}>
-                                <div className={"wrap"}>
-                                    <img width={"100%"} src={process.env.PUBLIC_URL + '/images/project1.jpg'}
-                                         alt={project.name}/>
-                                    <div className={"aboutProject"}>
-                                        <h4 style={{marginBottom: "18px"}}>{project.name}</h4>
-                                        <span>{project.about}<br/>
+                        return (
+                            <>
+                                <FlexboxGrid.Item componentClass={Col} colspan={16} md={8}>
+                                    <div className={"wrap"}>
+                                        <img width={"100%"} src={"/api/content/" + project.projectIcon}
+                                             alt={project.name}/>
+                                        <div className={"aboutProject"}>
+                                            <h4 style={{marginBottom: "18px"}}>{project.name}</h4>
+                                            <span style={{color: "#e9b370"}}>{project.shortDesc}<br/>
                                     </span>
-                                        <Button style={{backgroundColor: "#ffdc14", color: "black", fontWeight: "bold", marginTop: "10%"}}
-                                                onClick={console.log}>Подробнее</Button>
+                                            <Button style={{
+                                                backgroundColor: "#ffdc14",
+                                                color: "black",
+                                                fontWeight: "bold",
+                                                marginTop: "10%"
+                                            }}
+                                                    onClick={console.log}>Подробнее</Button>
+                                        </div>
                                     </div>
-                                </div>
-                            </FlexboxGrid.Item>
+                                </FlexboxGrid.Item>
+
+                            </>
                         )
-                    }):null}
+                    }) : null}
                     {/*<FlexboxGrid.Item componentClass={Col} colspan={16} md={8}>*/}
                     {/*    <div className={"wrap"}>*/}
                     {/*        <img width={"100%"} src={process.env.PUBLIC_URL + '/images/project1.jpg'}*/}
@@ -91,6 +103,10 @@ export const ProjectsPage = () => {
                     {/*    </div>*/}
                     {/*</FlexboxGrid.Item>*/}
                 </FlexboxGrid>
+                <div style={{textAlign: "center"}}>
+                    <Button color={"violet"} size={"lg"}>Остальные проекты <Icon
+                        icon={"angle-right"}/></Button>
+                </div>
             </div>
         </div>
     );

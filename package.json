@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://dromran.ru/",
   "version": "0.1.0",
   "proxy": "http://dromran.ru",
   "private": true,
@@ -19,7 +20,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-jss": "^10.7.1",
     "react-password-strength-bar": "^0.3.5",
+    "react-player": "^2.7.0",
     "react-responsive": "^9.0.0-beta.3",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.4.3",

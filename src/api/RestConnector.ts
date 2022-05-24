@@ -6,7 +6,7 @@ export const RESTRequest = (method:sendMethod, url:string, body?:object|null) =>
     return axios(
         {
             method: method,
-            url: "/info_back" + url,
+            url: "/api" + url,
             headers: headerGenerator(),
             data: body
         }

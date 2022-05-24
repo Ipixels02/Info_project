@@ -11,21 +11,31 @@ const model = Schema.Model({
 });
 
 
-const convertFromToLoginModel =(form:any):LoginModel => {
+const convertFromToLoginModel =(form:any, token:string):LoginModel => {
     const isMail = form.username.match("[a-zA-Z0-9]{2,}@[a-zA-Z0-9]{2,}\\.[a-z]{2,}")
     return {
         password:form.password,
         login: isMail?null:form.username,
-        email: isMail?form.username:null
+        email: isMail?form.username:null,
+        captcha: token
     };
 }
 
 export const LoginComponent:FC = () =>{
     const [formData, setFormData] = useState<any>(undefined);
+    const [captcha, setCaptcha] = useState<string | undefined>(undefined);
+    useEffect(() => {
+        const script = document.createElement("script")
+        script.src = "https://www.google.com/recaptcha/api.js?render=6Ldz7CUcAAAAAG3QV6h9Fi9jXfehsTgXUvtSTY7F"
+        document.body.appendChild(script)
+    }, [])
 
     const [pendingUser,errorUser,dataUser,refreshFnUser] = useAsyncRequest(async ()=>{
-        return  loginUser(convertFromToLoginModel(formData));
-    },undefined,undefined);
+        if (captcha) {
+            return  loginUser(convertFromToLoginModel(formData, captcha));
+        }
+    },undefined,[captcha]);
+
 
     useEffect(()=>{
        if(errorUser)
@@ -46,14 +56,23 @@ export const LoginComponent:FC = () =>{
             <Button onClick={()=>{
                 const checked = model.check(formData);
                 if(checked.password.hasError) {
-                    Alert.error("Не введеён пароль!",1500);
+                    Alert.error("Не введён пароль!",1500);
                     return
                 }
                 if(checked.username.hasError){
-                    Alert.error("Не введеён логин или почта!",1500);
+                    Alert.error("Не введён логин или почта!",1500);
                     return;
                 }
-                refreshFnUser();
+                // @ts-ignore
+                window.grecaptcha.ready(_ => {
+                    // @ts-ignore
+                    window.grecaptcha
+                        .execute("6Ldz7CUcAAAAAG3QV6h9Fi9jXfehsTgXUvtSTY7F", { action: "log" })
+                        // @ts-ignore
+                        .then(token => {
+                            setCaptcha(token);
+                        })
+                })
 
             }} style={{ width: 250 }}>Войти</Button>
         </Form>

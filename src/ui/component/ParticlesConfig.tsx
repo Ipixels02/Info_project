@@ -23,12 +23,12 @@ export const particlesConfig : RecursivePartial<IOptions> = {
         "enable": false
     },
     "fullScreen": {
-        "enable": true,
+        "enable": false,
         "zIndex": -1
     },
     "detectRetina": true,
     "duration": 0,
-    "fpsLimit": 60,
+    "fpsLimit": 30,
     "interactivity": {
         "detectsOn": "window",
         "events": {
@@ -45,7 +45,7 @@ export const particlesConfig : RecursivePartial<IOptions> = {
                     "smooth": 10
                 }
             },
-            "resize": false
+            "resize": true
         },
         "modes": {
             "attract": {

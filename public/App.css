@@ -40,6 +40,7 @@
     background-size: cover;
     /*background: url("./images/BG.png") no-repeat fixed center center;*/
     height: 100vh;
+    position: relative;
 }
 
 .main-middle-text {
@@ -68,13 +69,40 @@
     line-height: 23px;
 }
 
+.videoButton {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px 10px 15px;
+    border: solid 2px white;
+    border-radius: 100px;
+}
+.videoButton:hover {
+    cursor: pointer;
+    color: #0d0d0d;
+    background-color: rgb(233, 179, 112);
+    transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
 .about-block {
     /*background: url("./images/bg_about_us.svg") no-repeat center center, linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.5));*/
     display: grid;
     position: relative;
-    background-color: white;
+    background-color: #ffffff;
     height: 180vh;
+    padding-bottom: 50px;
+}
+
+.leftPictureMainBlock {
+    margin-top: 45%;
+}
+.rightPictureMainBlock {
+    margin-top: 75%;
+}
+
+.aboutBlockContent img {
+    width: 250px;
+    box-shadow: 0 6px 40px -3px rgb(0 0 0.5);
+    border-radius: 15px;
 }
 
 .styleImg {
@@ -93,6 +121,7 @@
 
 .about_company_textBlock {
     font-family: 'Open Sans', sans-serif;
+    color: #6CCED9;
     text-align: center;
     margin-top: 55%;
 }
@@ -105,9 +134,9 @@
     background: rgb(42,19,59);
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     background-size: cover;
-    /*height: 100vh;*/
     padding-top: 100px;
-    color: white;
+    padding-bottom: 100px;
+    color: #ffffff;
     text-shadow: 2px 2px 2px #0d0d0d;
 }
 
@@ -116,8 +145,9 @@
     text-align: center;
     height: 140vh;
     padding-top: 100px;
-    color: white;
+    color: #ffffff;
 }
+
 .wrap {
     background-color: #331e58;
     box-shadow: 0 6px 23px -2px rgb(0 0 0.5);
@@ -132,19 +162,22 @@
     border-top-right-radius: 15px;
 }
 .aboutProject {
-    margin-top: 5%;
     text-align: center;
-
 }
+
+.projectIsOpen {
+    padding: 10px;
+}
+
 
 .risks {
     background: rgb(42,19,59);
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     background-size: cover;
     text-align: center;
-    /*height: 130vh;*/
     padding-top: 100px;
-    color: white;
+    padding-bottom: 100px;
+    color: #ffffff;
     text-shadow: 2px 2px 2px #0d0d0d;
 }
 .risks img {
@@ -156,9 +189,9 @@
     background: rgb(42,19,59);
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     text-align: center;
-    /*height: 120vh;*/
     padding-top: 100px;
-    color: white;
+    padding-bottom: 80px;
+    color: #ffffff;
 }
 .guaranteesText {
     margin-top: 20%;
@@ -179,8 +212,8 @@
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
     color: #ffffff;
     text-align: center;
-    /*height: 130vh;*/
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .registrationPage {
@@ -213,17 +246,36 @@
 .personalAreaPage {
     background: rgb(42,19,59);
     background: linear-gradient(15deg, rgba(42,19,59,1) 50%, rgba(122,16,118,1) 100%);
-    padding-top: 10%;
-    height: 110vh;
+    padding: 10% 2% 24%;
     width: 100%;
 }
 
 .personalAreaPage span {
-    color: white;
+    color: #ffffff;
+}
+
+.getReferralButton {
+    display: flex;
+    background-color: #F63E62;
+    color: #ffffff;
+    align-items: center;
+    padding: 0 15px 0 15px;
+    border: solid 2px white;
+    border-radius: 100px;
+    float: right;
+}
+.getReferralButton:hover {
+    cursor: pointer;
+    color: #0d0d0d;
+    background-color: rgb(233, 179, 112);
+    transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .formBlock {
-    padding-top: 10%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
     position: relative;
     background-size: cover;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("./images/charles-forerunner-3fPXt37X6UQ-unsplash.jpg") no-repeat center center;
@@ -233,6 +285,7 @@
 
 .formBlockText {
     justify-content: center;
+    display: flex;
 }
 
 .formBlock h3 {
@@ -264,25 +317,51 @@
     align-items: center;
     padding: 12px 15px 10px 15px;
     color: #e9b370;
+    cursor: pointer;
+    width: 60px;
+    border: 2px solid;
+    border-radius: 50%;
+}
+
+.buttonOnFooter {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 12px 15px 10px 15px;
+    border: solid 2px #e9b370;
+}
+.buttonOnFooter span {
+    margin-left: 10px;
+    font-size: 30px;
+}
+.buttonOnFooter:hover {
+    cursor: pointer;
+    color: #0d0d0d;
+    background-color: rgb(233, 179, 112);
+    transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .startProjectButton {
     width: 32px;
     min-width: 16px;
     margin-top: 5px;
 }
-.startProjectButton:hover {
-    background-color: rgb(233, 179, 112);
-}
 
 .site-copy {
-    background: #1b0d1c;
     display: flex;
-    justify-content: left;
-    width: 100%;
+    align-items: center;
+    background: #1b0d1c;
     height: 10vh;
+    color: #ffffff;
 }
 
 /*Mobile styles*/
+@media only screen and (max-width: 1100px) {
+    .about_company {
+        padding: 15% 0 10% 0;
+        text-align: center;
+    }
+}
 @media only screen and (max-width: 991px) {
     .Header {
         padding: 0;
@@ -309,10 +388,16 @@
         top: 0;
         right: 0;
         transform: translate(-100%, 18%);
+        color: #A2CE98;
     }
 
     .nav_items {
         display: block;
+    }
+    .nav_items ul {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 80px);
+        display: grid;
     }
 
     .responsive-navbar-nav {
@@ -326,40 +411,101 @@
         font-size: 20px;
     }
 
+    .flexMainBlock {
+        margin-bottom: 0;
+    }
+
+    .leftPictureMainBlock {
+        text-align: center;
+        margin-top: 15%;
+    }
+    .rightPictureMainBlock {
+        text-align: center;
+        margin-top: 30%;
+    }
+
     .buttonPersonalArea {
-        margin-left: 0;
-        margin-right: 20px;
+
     }
 
     .about-block {
         height: 100%;
     }
 
+    .about_company {
+        padding: 15% 0 10% 0;
+        text-align: center;
+    }
+
+    .about_company_textBlock {
+        margin-top: 10%;
+    }
+
     .risks {
         height: 100%
+        /*padding: 50px 4% 5%;*/
     }
+
     .personalAreaPage {
         padding-top: 20%;
+    }
+
+    .getReferralButton {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .footerFlexed {
+        height: 45vh;
     }
 
 }
 
 @media only screen and (max-width: 555px) {
+    .nav_items ul {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 60px);
+        display: grid;
+    }
+
     .main-middle-text h5 {
-        font-size: 3vw;
+        font-size: 5vw;
     }
 
     .main-middle-text h1 {
-        font-size: 6vw;
+        font-size: 9vw;
+    }
+    .about_company {
+        padding: 15% 0 10% 0;
+        text-align: center;
     }
 
     .about_company h1 {
-        font-size: 19px;
+        font-size: 30px;
+    }
+
+    .aboutBlockContent img {
+        width: 120px;
+        box-shadow: 0 6px 20px -3px rgb(0 0 1);
+    }
+
+    .projectStyle h1 {
+        font-size: 30px;
     }
 
     .personalAreaPage {
         padding-top: 20%;
     }
+    .footerFlexed {
+        height: 55vh;
+    }
+    .footerFlexed h4 {
+        font-size: 20px;
+    }
+    .footerFlexed span {
+        font-size: 20px;
+    }
 }
+
+
 
 /*Styles for scroll*/

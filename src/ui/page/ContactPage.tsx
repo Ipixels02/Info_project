@@ -13,7 +13,7 @@ export const ContactPage = () => {
             <div className={"contactBlock"}>
                 <h1>Наши контакты</h1>
                 <FlexboxGrid style={{padding: "0 4%", marginTop: "5%"}} justify="space-around" align="top">
-                    <FlexboxGrid.Item componentClass={Col} colspan={12} md={12}>
+                    <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
                         <h4>Хотите связаться с нами, напишите сообщение ниже:</h4><br/>
                         <Form style={{color: "black"}}>
                             <FormGroup>
@@ -39,7 +39,7 @@ export const ContactPage = () => {
                         </Form>
                     </FlexboxGrid.Item>
 
-                    <FlexboxGrid.Item componentClass={Col} colspan={12} md={10}>
+                    <FlexboxGrid.Item componentClass={Col} colspan={24} md={10}>
                         <h2>Гугл карта</h2>
                     </FlexboxGrid.Item>
                 </FlexboxGrid>

@@ -1,17 +1,25 @@
-import {LoginModel, MessageInterface, ProjectModel, RegModel, UpdateUserModel, UserModel} from "./models";
+import {
+    checkModel,
+    LoginModel,
+    MessageInterface,
+    ProjectEntity,
+    RegModel,
+    UserInfoUpdateModel,
+    UserEntity
+} from "./models";
 import {RESTRequest} from "./RestConnector";
 
 
-let currentUser: UserModel|number;
+let currentUser: UserEntity | number;
 
-let hooksUserGet:Set<Function> = new Set<Function>();
+let hooksUserGet: Set<Function> = new Set<Function>();
 
 
-export const userHook = (callback: Function,oldState:UserModel|number) => {
-    if(currentUser&&oldState!==currentUser){
+export const userHook = (callback: Function, oldState: UserEntity | number) => {
+    if (currentUser && oldState !== currentUser) {
         callback(currentUser);
     }
-        hooksUserGet.add(callback);
+    hooksUserGet.add(callback);
 }
 
 export const permanentReloadUser = () => {
@@ -26,9 +34,11 @@ export const permanentReloadUser = () => {
 
 permanentReloadUser();
 
-const updateUser = (dataUser: UserModel|number) => {
+const updateUser = (dataUser: UserEntity | number) => {
     currentUser = dataUser;
-    hooksUserGet.forEach(elem=>{elem(currentUser)})
+    hooksUserGet.forEach(elem => {
+        elem(currentUser)
+    })
 }
 
 export const startRegistrationUser = (formData: RegModel): Promise<MessageInterface> => {
@@ -38,6 +48,19 @@ export const startRegistrationUser = (formData: RegModel): Promise<MessageInterf
             }
         ).catch((error) => {
             reject({message: error.data, code: error.status})
+        });
+    });
+}
+
+export const checkLoginAndMail = (form: checkModel, checkField: string): Promise<boolean> => {
+    return new Promise((resolve) => {
+        RESTRequest("POST", "/auth/reg/used", form).then((response) => {
+                resolve(true)
+                console.log(response)
+            }
+        ).catch((error) => {
+            resolve(false)
+            console.log(error)
         });
     });
 }
@@ -57,8 +80,8 @@ export const endRegistrationUserRedirect = (code: string) => {
     window.location.replace("/auth/end-reg?confirmCode=" + code)
 }
 
-export const loginUser = (form: LoginModel): Promise<UserModel | MessageInterface> => {
-    return new Promise<UserModel>((resolve, reject) => {
+export const loginUser = (form: LoginModel): Promise<UserEntity | MessageInterface> => {
+    return new Promise<UserEntity>((resolve, reject) => {
         RESTRequest("POST", "/auth/login", form).then((response) => {
                 resolve(response.data);
                 updateUser(response.data);
@@ -81,9 +104,11 @@ export const logOutUser = (): Promise<MessageInterface> => {
     });
 }
 
-export const getUserGroup = ():Promise<Array<UserModel>> => {
-    return new Promise<Array<UserModel>>(((resolve, reject) => {
-        RESTRequest("GET", "/account/group").then((response) => {
+export const getUserGroup = (userId?: number): Promise<UserEntity> => {
+    const mbId = userId ? "?userId=" + userId : "";
+    return new Promise<UserEntity>(((resolve, reject) => {
+        RESTRequest("GET", "/account/group" + mbId
+        ).then((response) => {
                 resolve(response.data);
             }
         ).catch((error) => {
@@ -92,8 +117,8 @@ export const getUserGroup = ():Promise<Array<UserModel>> => {
     }));
 }
 
-export const  getUserProjects  = ():Promise<Array<ProjectModel>> => {
-    return new Promise<Array<ProjectModel>>(((resolve, reject) => {
+export const getUserProjects = (): Promise<Array<ProjectEntity>> => {
+    return new Promise<Array<ProjectEntity>>(((resolve, reject) => {
         RESTRequest("GET", "/account/projects").then((response) => {
                 resolve(response.data);
             }
@@ -103,9 +128,9 @@ export const  getUserProjects  = ():Promise<Array<ProjectModel>> => {
     }));
 }
 
-export const getUserById = (userId:number):Promise<UserModel> => {
-    return new Promise<UserModel>(((resolve, reject) => {
-        RESTRequest("GET", "/account/"+userId).then((response) => {
+export const getUserById = (userId: number): Promise<UserEntity> => {
+    return new Promise<UserEntity>(((resolve, reject) => {
+        RESTRequest("GET", "/account/" + userId).then((response) => {
                 resolve(response.data);
             }
         ).catch((error) => {
@@ -114,9 +139,9 @@ export const getUserById = (userId:number):Promise<UserModel> => {
     }));
 }
 
-export const updateDataUser = (form:UpdateUserModel):Promise<UserModel|MessageInterface> => {
-    return new Promise<UserModel|MessageInterface>(((resolve, reject) => {
-        RESTRequest("PUT", "/account/",form).then((response) => {
+export const updateDataUser = (form: UserInfoUpdateModel): Promise<UserEntity | MessageInterface> => {
+    return new Promise<UserEntity | MessageInterface>(((resolve, reject) => {
+        RESTRequest("PUT", "/account/", form).then((response) => {
                 resolve(response.data);
             }
         ).catch((error) => {
@@ -125,9 +150,20 @@ export const updateDataUser = (form:UpdateUserModel):Promise<UserModel|MessageIn
     }));
 }
 
-export const updateValidDataUser = (code:string):Promise<MessageInterface> => {
+export const updateValidDataUser = (code: string): Promise<MessageInterface> => {
     return new Promise<MessageInterface>(((resolve, reject) => {
-        RESTRequest("GET", "/account/update-valid?code="+code).then((response) => {
+        RESTRequest("GET", "/account/update-valid?code=" + code).then((response) => {
+                resolve(response.data);
+            }
+        ).catch((error) => {
+            reject({message: error.data, code: error.status})
+        });
+    }));
+}
+
+export const activateUser = (userId: number): Promise<MessageInterface> => {
+    return new Promise<MessageInterface>(((resolve, reject) => {
+        RESTRequest("PUT", "/account/" + userId + "/activate").then((response) => {
                 resolve(response.data);
             }
         ).catch((error) => {

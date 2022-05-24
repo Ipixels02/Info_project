@@ -17,7 +17,7 @@
 body {
   font-size: 14px;
   line-height: 1.42857143;
-  color: #6CCED9;
+  color: #ffffff;
   background-color: #fff;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -1087,12 +1087,12 @@ dd {
 }
 .rs-breadcrumb > li {
   display: inline-block;
-  font-size: 12px;
+  font-size: 15px;
 }
 .rs-breadcrumb-item > a {
   cursor: pointer;
   transition: color 0.3s linear;
-  color: #6CCED9;
+  color: #DEFFD6;
   text-decoration: none;
 }
 .rs-breadcrumb-item > a:hover,
@@ -18182,7 +18182,7 @@ textarea.rs-picker-menu .rs-picker-search-bar .rs-picker-search-bar-input {
 .rs-slider-bar {
   height: 6px;
   border-radius: 3px;
-  background-color: #f2f2f5;
+  background-color: #48DD00;
   cursor: pointer;
 }
 .rs-slider-bar:hover {
@@ -18261,7 +18261,7 @@ textarea.rs-picker-menu .rs-picker-search-bar .rs-picker-search-bar-input {
   position: absolute;
   height: 6px;
   border-radius: 3px 0 0 3px;
-  background-color: #3498ff;
+  background-color: #ed002f;
 }
 .rs-slider-vertical .rs-slider-progress-bar {
   width: 6px;
