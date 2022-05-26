@@ -1,8 +1,8 @@
 {
   "name": "frontend",
-  "homepage": "https://dromran.ru/",
+  "homepage": "https://msm.dromran.ru/",
   "version": "0.1.0",
-  "proxy": "http://dromran.ru",
+  "proxy": "https://msm.dromran.ru",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
